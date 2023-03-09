@@ -1,7 +1,13 @@
 const db = require("../../database/models");
 
 const getAllCollections = async () => {
-  const collections = await db.Collection.findAll();
+  const collections = await db.Collection.findAll({
+    include: [
+      {
+        model: db.Content,
+      },
+    ],
+  });
   return collections;
 };
 
@@ -12,7 +18,7 @@ const getAllEntriesOfCollection = async (collectionId) => {
     },
     include: [
       {
-        model: db.ContentField,
+        model: db.Collection,
       },
     ],
   });
@@ -26,20 +32,37 @@ const createCollection = async (collectionName) => {
   return collection;
 };
 
-const createContentFields = async (contentId, fields) => {
-  const contentFields = await db.ContentField.create({
-    content_id: contentId,
-    fields: fields,
+const updateCollection = async (collectionId, collectionName) => {
+  await db.Collection.update(
+    {
+      collection_name: collectionName,
+    },
+    {
+      where: {
+        id: collectionId,
+      },
+    }
+  );
+  const updatedCollection = await db.Collection.findOne({
+    where: {
+      id: collectionId,
+    },
+    include: [
+      {
+        model: db.Content,
+        attributes: ["values"],
+      },
+    ],
   });
-  return contentFields;
+  return updatedCollection;
 };
 
-const createContent = async (collectionId, content) => {
-  const newContent = await db.Content.create({
-    collection_id: collectionId,
-    values: content,
+const createContentFields = async (contentId, field) => {
+  const contentFields = await db.ContentField.create({
+    content_id: contentId,
+    fields: field,
   });
-  return newContent;
+  return contentFields;
 };
 
 const getContentFields = async (contentId) => {
@@ -51,26 +74,29 @@ const getContentFields = async (contentId) => {
   return contentFields;
 };
 
-const updateContentField = async (contentId, values) => {
-  const updatedContent = await db.ContentField.update(
-    {
-      values,
+const deleteContentField = async (fieldId) => {
+  await db.ContentField.destroy({
+    where: {
+      id: fieldId,
     },
-    {
-      where: {
-        content_id: contentId,
-      },
-    }
-  );
-  return updatedContent;
+  });
+};
+
+const createContent = async (collectionId, content) => {
+  const newContent = await db.Content.create({
+    collection_id: collectionId,
+    values: content,
+  });
+  return newContent;
 };
 
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
   createCollection,
+  updateCollection,
   createContentFields,
   createContent,
   getContentFields,
-  updateContentField,
+  deleteContentField,
 };

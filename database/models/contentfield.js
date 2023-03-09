@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       field_id: DataTypes.INTEGER,
       content_id: DataTypes.INTEGER,
-      fields: DataTypes.JSONB,
+      fields: DataTypes.STRING,
     },
     {
       sequelize,

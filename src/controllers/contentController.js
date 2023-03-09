@@ -31,16 +31,49 @@ const createCollection = async (req, res) => {
   }
 };
 
+const updateCollection = async (req, res) => {
+  try {
+    const { collectionId } = req.params;
+    const { collectionName } = req.body;
+    const collection = await contentServices.updateCollection(
+      collectionId,
+      collectionName
+    );
+    res.status(200).json(collection);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 const createContentFields = async (req, res) => {
-  //fix
   try {
     const { contentId } = req.params;
-    const { fields } = req.body;
-    console.log(fields);
+    const { field } = req.body;
+
     const contentFields = await contentServices.createContentFields(
       contentId,
-      fields
+      field
     );
+    res.status(200).json(contentFields);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteContentField = async (req, res) => {
+  try {
+    const { fieldId } = req.params;
+    await contentServices.deleteContentField(fieldId);
+    res.status(200).json({ message: "Content field deleted" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getContentFields = async (req, res) => {
+  try {
+    const { contentId } = req.params;
+    const contentFields = await contentServices.getContentFields(contentId);
     res.status(200).json(contentFields);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -61,37 +94,13 @@ const createContent = async (req, res) => {
   }
 };
 
-const getContentFields = async (req, res) => {
-  try {
-    const { contentId } = req.params;
-    const contentFields = await contentServices.getContentFields(contentId);
-    res.status(200).json(contentFields);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-const updateContentField = async (req, res) => {
-  try {
-    const { contentId } = req.params;
-    const { values } = req.body;
-    const updatedContent = await contentServices.updateContentField(
-      contentId,
-      values
-    );
-
-    res.status(200).json(updatedContent);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
   createCollection,
+  updateCollection,
   createContentFields,
+  deleteContentField,
   createContent,
   getContentFields,
-  updateContentField,
 };

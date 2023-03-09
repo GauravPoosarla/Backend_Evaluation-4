@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       fields: {
-        type: Sequelize.JSONB,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

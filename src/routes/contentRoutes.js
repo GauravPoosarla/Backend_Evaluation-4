@@ -7,21 +7,25 @@ contentRouter.get(
   contentController.getAllEntriesOfCollection
 );
 contentRouter.post("/create-collection", contentController.createCollection);
+contentRouter.put(
+  "/update-collection/:collectionId",
+  contentController.updateCollection
+);
 contentRouter.post(
   "/create-content-fields/:contentId",
   contentController.createContentFields
 );
 contentRouter.get(
-  "get-content-fields/:contentId",
+  "/get-content-fields/:contentId",
   contentController.getContentFields
 );
-contentRouter.post(
-  "/create-content:collectionId",
-  contentController.createContent
-);
 contentRouter.put(
-  "/update-content-field/:contentId",
-  contentController.updateContentField
+  "/delete-content-field/:fieldId",
+  contentController.deleteContentField
+);
+contentRouter.post(
+  "/create-content/:collectionId",
+  contentController.createContent
 );
 
 module.exports = contentRouter;

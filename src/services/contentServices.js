@@ -75,11 +75,70 @@ const getContentFields = async (contentId) => {
 };
 
 const deleteContentField = async (fieldId) => {
+  const fieldName = await db.ContentField.findOne({
+    where: {
+      id: fieldId,
+    },
+  });
   await db.ContentField.destroy({
     where: {
       id: fieldId,
     },
   });
+
+  const content = await db.Content.findAll();
+  content.forEach(async (item) => {
+    const values = item.values;
+    delete values[fieldName.fields];
+    await db.Content.update(
+      {
+        values: values,
+      },
+      {
+        where: {
+          id: item.id,
+        },
+      }
+    );
+  });
+};
+
+const updateContentField = async (contentId, fieldId, newFieldName) => {
+  const fieldName = await db.ContentField.findOne({
+    where: {
+      field_id: fieldId,
+    },
+  });
+
+  const field = fieldName.fields;
+  await db.ContentField.update(
+    {
+      fields: newFieldName,
+    },
+    {
+      where: {
+        content_id: contentId,
+        field_id: fieldId,
+      },
+    }
+  );
+  const content = await db.Content.findAll();
+  content.forEach(async (item) => {
+    const values = item.values;
+    values[newFieldName] = values[field];
+    delete values[field];
+    await db.Content.update(
+      {
+        values: values,
+      },
+      {
+        where: {
+          id: item.id,
+        },
+      }
+    );
+  });
+  return "updated field value";
 };
 
 const createContent = async (collectionId, content) => {
@@ -90,13 +149,44 @@ const createContent = async (collectionId, content) => {
   return newContent;
 };
 
+const getContent = async (contentId) => {
+  const content = await db.Content.findOne({
+    where: {
+      id: contentId,
+    },
+  });
+  return content;
+};
+
+const updateContent = async (contentId, content) => {
+  await db.Content.update(
+    {
+      values: content,
+    },
+    {
+      where: {
+        id: contentId,
+      },
+    }
+  );
+  const updatedContent = await db.Content.findOne({
+    where: {
+      id: contentId,
+    },
+  });
+  return updatedContent;
+};
+
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
   createCollection,
   updateCollection,
   createContentFields,
-  createContent,
+  updateContentField,
   getContentFields,
   deleteContentField,
+  createContent,
+  getContent,
+  updateContent,
 };

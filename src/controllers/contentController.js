@@ -60,6 +60,21 @@ const createContentFields = async (req, res) => {
   }
 };
 
+const updateContentField = async (req, res) => {
+  try {
+    const { contentId } = req.params;
+    const { fieldId, newFieldName } = req.body;
+    const contentFields = await contentServices.updateContentField(
+      contentId,
+      fieldId,
+      newFieldName
+    );
+    res.status(200).json(contentFields);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 const deleteContentField = async (req, res) => {
   try {
     const { fieldId } = req.params;
@@ -94,6 +109,30 @@ const createContent = async (req, res) => {
   }
 };
 
+const getContent = async (req, res) => {
+  try {
+    const { contentId } = req.params;
+    const content = await contentServices.getContent(contentId);
+    res.status(200).json(content);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateContent = async (req, res) => {
+  try {
+    const { contentId } = req.params;
+    const { content } = req.body;
+    const updatedContent = await contentServices.updateContent(
+      contentId,
+      content
+    );
+    res.status(200).json(updatedContent);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
@@ -101,6 +140,9 @@ module.exports = {
   updateCollection,
   createContentFields,
   deleteContentField,
-  createContent,
+  updateContentField,
   getContentFields,
+  createContent,
+  getContent,
+  updateContent,
 };

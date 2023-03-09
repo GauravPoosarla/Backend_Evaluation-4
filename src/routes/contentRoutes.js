@@ -20,12 +20,21 @@ contentRouter.get(
   contentController.getContentFields
 );
 contentRouter.put(
+  "/update-content-field/:contentId",
+  contentController.updateContentField
+);
+contentRouter.delete(
   "/delete-content-field/:fieldId",
   contentController.deleteContentField
 );
 contentRouter.post(
   "/create-content/:collectionId",
   contentController.createContent
+);
+contentRouter.get("/get-content/:contentId", contentController.getContent);
+contentRouter.put(
+  "/update-content/:contentId",
+  contentController.updateContent
 );
 
 module.exports = contentRouter;

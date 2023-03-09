@@ -9,9 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Collection.hasMany(models.content, {
+      Collection.hasMany(models.Content, {
         foreignKey: "collection_id",
-        as: "content",
         sourceKey: "collection_id",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

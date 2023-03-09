@@ -9,14 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Content.belongsTo(models.collection, {
+      Content.belongsTo(models.Collection, {
         foreignKey: "collection_id",
       });
 
-      // 1 to 1 relationship with content_fields
-      Content.hasOne(models.content_fields, {
+      Content.hasOne(models.ContentField, {
         foreignKey: "content_id",
-        as: "content_fields",
         sourceKey: "content_id",
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

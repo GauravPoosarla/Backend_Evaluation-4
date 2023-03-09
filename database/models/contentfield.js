@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ContentField.belongsTo(models.content, {
+      ContentField.belongsTo(models.Content, {
         foreignKey: "content_id",
       });
     }

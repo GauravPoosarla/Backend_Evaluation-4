@@ -16,5 +16,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", validateJWT, contentRouter);
 
 app.listen(8001, () => {
-  console.log("Example app listening at http://localhost:8001");
+  console.log("app listening at http://localhost:8001");
 });

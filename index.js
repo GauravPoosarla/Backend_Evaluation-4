@@ -13,10 +13,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.get("/test", validateJWT, (req, res) => {
-//   res.send("Hello World!");
-// });
-
 app.use("/", validateJWT, contentRouter);
 
 app.listen(8001, () => {

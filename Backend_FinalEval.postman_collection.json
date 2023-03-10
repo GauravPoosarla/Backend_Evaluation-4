@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "0638d77b-9656-42aa-859f-89b875962194",
+		"name": "Backend_FinalEval",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25484873"
+	},
+	"item": [
+		{
+			"name": "All Collections",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8001/all-collections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"all-collections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Entries of Collection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8001/all-entries-collection/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"all-entries-collection",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"collectionName\": \"Music\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/create-collection",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"create-collection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Collection Name",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"collectionName\": \"Music\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/update-collection/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"update-collection",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Content Fields",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8001/create-content-fields/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"create-content-fields",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Content Fields",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Content Field",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fieldId\": 6,\n    \"newFieldName\": \"GameName\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/update-content-field/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"update-content-field",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Content Field",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fieldId\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/delete-content-field/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"delete-content-field",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Content Collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": {\n        \"Name\": \"McKinsey & Company\",\n        \"Turnover\": \"$15 billion\",\n        \"Employees\": \"45,000\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/create-content/40",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"create-content",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Content Collection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8001/get-content/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"get-content",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Content Collection",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhdXJhdkBtY2tpbnNleS5jb20iLCJ0aW1lc3RhbXAiOjE2NzgzNTY2ODg2NTQsImlhdCI6MTY3ODM1NjY4OH0.qcO4L3eoYZ9PwXHJ8Ikm-56y1bcVSniFF0ld8y_V1jc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": {\n        \"GameName\": \"Valorant\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/update-content/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"update-content",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Content Collection",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/delete-content/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"delete-content",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,5 +1,5 @@
 const contentRouter = require("express").Router();
-const contentController = require("../controllers/ContentController");
+const contentController = require("../controllers/contentController");
 
 contentRouter.get("/all-collections", contentController.getAllCollections);
 contentRouter.get(

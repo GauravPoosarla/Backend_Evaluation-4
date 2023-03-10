@@ -178,6 +178,14 @@ const updateContent = async (contentId, content) => {
   return updatedContent;
 };
 
+const deleteContent = async (contentId) => {
+  await db.Content.destroy({
+    where: {
+      id: contentId,
+    },
+  });
+};
+
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
@@ -190,4 +198,5 @@ module.exports = {
   createContent,
   getContent,
   updateContent,
+  deleteContent,
 };

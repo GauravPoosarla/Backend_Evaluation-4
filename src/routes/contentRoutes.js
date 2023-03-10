@@ -36,5 +36,9 @@ contentRouter.put(
   "/update-content/:contentId",
   contentController.updateContent
 );
+contentRouter.delete(
+  "/delete-content/:contentId",
+  contentController.deleteContent
+);
 
 module.exports = contentRouter;

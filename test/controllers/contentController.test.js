@@ -193,4 +193,37 @@ describe("Content Controller", () => {
       expect(res.json).toHaveBeenCalledWith({ error: mockError.message });
     });
   });
+  describe("deleteContent", () => {
+    it("should delete a content", async () => {
+      const req = {
+        params: {
+          contentId: 1,
+        },
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+      services.deleteContent = jest.fn().mockResolvedValue();
+      await controller.deleteContent(req, res);
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith({ message: "Content deleted" });
+    });
+    it("should return error if deleteContent fails", async () => {
+      const req = {
+        params: {
+          contentId: 1,
+        },
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+      const mockError = new Error("error");
+      services.deleteContent = jest.fn().mockRejectedValue(mockError);
+      await controller.deleteContent(req, res);
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ error: mockError.message });
+    });
+  });
 });

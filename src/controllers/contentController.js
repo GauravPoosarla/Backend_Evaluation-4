@@ -136,6 +136,16 @@ const updateContent = async (req, res) => {
   }
 };
 
+const deleteContent = async (req, res) => {
+  try {
+    const { contentId } = req.params;
+    await contentServices.deleteContent(contentId);
+    res.status(200).json({ message: "Content deleted" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getAllCollections,
   getAllEntriesOfCollection,
@@ -148,4 +158,5 @@ module.exports = {
   createContent,
   getContent,
   updateContent,
+  deleteContent,
 };

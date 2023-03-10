@@ -8,6 +8,7 @@ const getAllCollections = async () => {
       },
     ],
   });
+  console.log(collections);
   return collections;
 };
 
@@ -26,6 +27,7 @@ const getAllEntriesOfCollection = async (collectionId) => {
 };
 
 const createCollection = async (collectionName) => {
+  // console.log(collectionName);
   const collection = await db.Collection.create({
     collection_name: collectionName,
   });

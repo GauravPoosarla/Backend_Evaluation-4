@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       collection_id: DataTypes.INTEGER,
       content_id: DataTypes.INTEGER,
+      content_name: DataTypes.STRING,
       values: DataTypes.JSONB,
     },
     {

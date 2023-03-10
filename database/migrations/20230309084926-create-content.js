@@ -16,6 +16,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      content_name: {
+        type: Sequelize.STRING,
+      },
       values: {
         type: Sequelize.JSONB,
       },

@@ -3,6 +3,7 @@ const contentServices = require("../services/contentServices");
 const getAllCollections = async (req, res) => {
   try {
     const collections = await contentServices.getAllCollections();
+    // console.log(collections.dataValues);
     res.status(200).json(collections);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -22,8 +23,10 @@ const getAllEntriesOfCollection = async (req, res) => {
 };
 
 const createCollection = async (req, res) => {
+  console.log(req.body);
   try {
     const { collectionName } = req.body;
+    console.log(collectionName);
     const collection = await contentServices.createCollection(collectionName);
     res.status(200).json(collection);
   } catch (error) {
